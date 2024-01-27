@@ -12,7 +12,6 @@
                                                                                                                         \$$    $$                                                                                                   
                                                                                                                          \$$$$$$                                                                                                                                                                                              
 
-This Script is pretty rare since unleak , congratz on found it XD :)
 This Was Edited Since 21/3/2022 , Feel Free To Leak and Edit My Script - Scripty#2063
 Credit to my friends , i edit his Script : mugaga#2801 , was edited  my friend's script
 Scripty#2063 Was Here
@@ -978,4 +977,3 @@ local function updateVisualizer(dt)
 end
 print("Everything Successfuly Loaded - FEIC63")
 game:GetService("RunService").Heartbeat:Connect(updateVisualizer)
---This Script Was Made With Nexo Animator
