@@ -1,0 +1,444 @@
+--[["
+		3 Mode : Replace from 1- 3
+		
+		- 1 : Basic Kill Mode
+		- 2 : Destroy single thing
+		- 3 : The Main Mod balance Between kill mode and destroy (recomended)]]
+local beta_mode = 3 -- here to replace , recomended mode 3
+--game:GetService("StarterGui"):SetCoreGuiEnabled(Enum. CoreGuiType. Backpack, true)
+
+local Players = game:GetService("Players")
+if beta_mode == 1 or beta_mode == 2 then
+local function shouldAddHumanoid(object)
+	-- Check if the object is named like existing players
+	for _, player in ipairs(Players:GetPlayers()) do
+		if object.Name == player.Name then
+			return false
+		end
+	end
+
+	-- Check if the object is a child of a character
+	for _, player in ipairs(Players:GetPlayers()) do
+		local character = player.Character
+		if character then
+			local descendants = character:GetDescendants()
+			for _, descendant in ipairs(descendants) do
+				if descendant == object then
+					return false
+				end
+			end
+		end
+	end
+	return true
+end
+
+local function addHumanoidToObject(object)
+	pcall(function()
+		if beta_mode == 2 then
+
+			if object:IsA("SpecialMesh") or object:IsA("BlockMesh") or object:IsA("CharacterMesh")  or object:IsA("MeshPart") or object:IsA("Part") or object:IsA("TrussPart") or object:IsA("WedgePart") or object:IsA("CornerWedgePart") and shouldAddHumanoid(object) then
+				local humanoid = Instance.new("Humanoid")
+				humanoid.Parent = object
+			end
+		elseif beta_mode == 1 then
+			if object:IsA("Model") then
+				local humanoid = Instance.new("Humanoid")
+				humanoid.Parent = object
+			end
+		end
+	end)
+end
+
+local function addObjectToWorkspace(object)
+	addHumanoidToObject(object)
+end
+if beta_mode == true then
+	for i , v in next , game:GetService("Workspace"):GetDescendants() do
+		addObjectToWorkspace(v)
+	end
+elseif beta_mode == false then
+	print("...")
+end
+
+for _, l in ipairs(Players:GetChildren()) do
+	if l.Character then
+		for _, v in ipairs(l.Character:GetChildren()) do
+			for _, m in ipairs(v:GetDescendants()) do
+				if m:IsA("Humanoid") then
+					m:Destroy()
+				end
+			end
+		end
+	end
+	end
+elseif beta_mode == 3 then
+	local Workspace = game:GetService("Workspace")
+	for _, object in ipairs(Workspace:GetDescendants()) do
+		local name = object.Name
+		if not Players:FindFirstChild(name) and not object:FindFirstChildOfClass("Humanoid") then
+			local humanoid = Instance.new("Humanoid", object)
+		end
+	end
+	for _, l in ipairs(Players:GetChildren()) do
+    if l.Character then
+        for _, v in ipairs(l.Character:GetChildren()) do
+            for _, m in ipairs(v:GetDescendants()) do
+                if m:IsA("Humanoid") then
+                    m:Destroy()
+                end
+            end
+        end
+    end
+end
+
+else 
+	error([["
+		Invalid Mode , choose from 1- 3
+		
+		- 1 : Basic Kill Mode
+		- 2 : Destroy single thing
+		- 3 : The Main Mod balance Between kill mode and destroy (recomended"]])
+end
+	
+
+function sandbox(var,func)
+	local env = getfenv(func)
+	local newenv = setmetatable({},{
+		__index = function(self,k)
+			if k=="script" then
+				return var
+			else
+				return env[k]
+			end
+		end,
+	})
+	setfenv(func,newenv)
+	return func
+end
+cors = {}
+mas = Instance.new("Model",game:GetService("Lighting"))
+Tool0 = Instance.new("Tool")
+Part1 = Instance.new("Part")
+SpecialMesh2 = Instance.new("SpecialMesh")
+Sound3 = Instance.new("Sound")
+Sound4 = Instance.new("Sound")
+PointLight5 = Instance.new("PointLight")
+LocalScript6 = Instance.new("LocalScript")
+Sound7 = Instance.new("Sound")
+LocalScript8 = Instance.new("LocalScript")
+Camera9 = Instance.new("Camera")
+Tool0.Name = "Green Hyper Laser Gun"
+Tool0.Parent = mas
+Tool0.CanBeDropped = false
+Tool0.Grip = CFrame.new(0, -0.100000001, 0.75, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Tool0.GripPos = Vector3.new(0, -0.10000000149011612, 0.75)
+Tool0.TextureId = "http://www.roblox.com/asset/?id=5625000761"
+Part1.Name = "Handle"
+Part1.Parent = Tool0
+Part1.CFrame = CFrame.new(655.03949, 0.670013428, -171.659286, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Part1.Position = Vector3.new(655.0394897460938, 0.670013427734375, -171.65928649902344)
+Part1.Size = Vector3.new(0.5800002217292786, 1.3400009870529175, 2.480001449584961)
+Part1.BottomSurface = Enum.SurfaceType.Smooth
+Part1.TopSurface = Enum.SurfaceType.Smooth
+Part1.FormFactor = Enum.FormFactor.Custom
+Part1.formFactor = Enum.FormFactor.Custom
+SpecialMesh2.Parent = Part1
+SpecialMesh2.MeshId = "rbxassetid://130099641"
+SpecialMesh2.Scale = Vector3.new(0.6499999761581421, 0.6499999761581421, 0.6499999761581421)
+SpecialMesh2.TextureId = "rbxassetid://142384318"
+SpecialMesh2.MeshType = Enum.MeshType.FileMesh
+Sound3.Name = "Fire"
+Sound3.Parent = Part1
+Sound3.SoundId = "http://www.roblox.com/asset?id=130113322"
+Sound4.Name = "Reload"
+Sound4.Parent = Part1
+Sound4.SoundId = "http://www.roblox.com/asset?id=130113370"
+PointLight5.Parent = Part1
+PointLight5.Color = Color3.new(0, 1, 1)
+PointLight5.Range = 0
+PointLight5.Brightness = 0
+LocalScript6.Name = "ToolScript"
+LocalScript6.Parent = Tool0
+table.insert(cors,sandbox(LocalScript6,function()
+	-----------------
+	--| Constants |--
+	-----------------
+
+	local SHOT_SPEED = 100
+	local SHOT_TIME = 60
+
+	local NOZZLE_OFFSET = Vector3.new(0, 0.4, -1.1)
+
+	-----------------
+	--| Variables |--
+	-----------------
+
+	local PlayersService = Game:GetService('Players')
+	local DebrisService = Game:GetService('Debris')
+
+	local Tool = script.Parent
+	local Handle = Tool:WaitForChild('Handle')
+
+	local FireSound = Handle:WaitForChild('Fire')
+	local ReloadSound = Handle:WaitForChild('Reload')
+	local HitFadeSound = script:WaitForChild('HitFade')
+
+	local PointLight = Handle:WaitForChild('PointLight')
+
+	local Character = nil
+	local Humanoid = nil
+	local Player = nil
+
+	local BaseShot = nil
+
+	-----------------
+	--| Functions |--
+	-----------------
+
+	-- Returns a character ancestor and its Humanoid, or nil
+	local function FindCharacterAncestor(subject)
+		if subject and subject ~= Workspace then
+			local humanoid = subject:FindFirstChild('Humanoid')
+			if humanoid then
+				return subject, humanoid
+			else
+				return FindCharacterAncestor(subject.Parent)
+			end
+		end
+		return nil
+	end
+
+	-- Removes any old creator tags and applies new ones to the specified target
+	local function ApplyTags(target)
+		while target:FindFirstChild('creator') do
+			target.creator:Destroy()
+		end
+
+		local creatorTag = Instance.new('ObjectValue')
+		creatorTag.Value = Player
+		creatorTag.Name = 'creator' --NOTE: Must be called 'creator' for website stats
+
+		local iconTag = Instance.new('StringValue')
+		iconTag.Value = Tool.TextureId
+		iconTag.Name = 'icon'
+
+		iconTag.Parent = creatorTag
+		creatorTag.Parent = target
+		DebrisService:AddItem(creatorTag, 4)
+	end
+
+	-- Returns all objects under instance with Transparency
+	local function GetTransparentsRecursive(instance, partsTable)
+		local partsTable = partsTable or {}
+		for _, child in pairs(instance:GetChildren()) do
+			if child:IsA('BasePart') or child:IsA('Decal') then
+				table.insert(partsTable, child)
+			end
+			GetTransparentsRecursive(child, partsTable)
+		end
+		return partsTable
+	end
+
+	local function SelectionBoxify(instance)
+		local selectionBox = Instance.new('SelectionBox')
+		selectionBox.Adornee = instance
+		selectionBox.Color = BrickColor.new('Lime green')
+		selectionBox.Parent = instance
+		return selectionBox
+	end
+
+	local function Light(instance)
+		local light = PointLight:Clone()
+		light.Range = light.Range + 2
+		light.Parent = instance
+	end
+
+	local function FadeOutObjects(objectsWithTransparency, fadeIncrement)
+		pcall(function()
+			repeat
+				local lastObject = nil
+				for _, object in pairs(objectsWithTransparency) do
+					object.Transparency = object.Transparency + fadeIncrement
+					lastObject = object
+				end
+				wait()
+			until lastObject.Transparency >= 1 or not lastObject
+		end)
+	end
+	local function Dematerialize(character, humanoid, firstPart)
+		humanoid.WalkSpeed = 0
+
+		local parts = {}
+		for _, child in pairs(character:GetChildren()) do
+			if child:IsA('BasePart') then
+				child.Anchored = true
+				table.insert(parts, child)
+			elseif child:IsA('LocalScript') or child:IsA('Script') then
+				child:Destroy()
+			end
+		end
+
+		local selectionBoxes = {}
+
+		local firstSelectionBox = SelectionBoxify(firstPart)
+		Light(firstPart)
+		wait(0.05)
+
+		for _, part in pairs(parts) do
+			if part ~= firstPart then
+				table.insert(selectionBoxes, SelectionBoxify(part))
+				Light(part)
+			end
+		end
+		pcall(function()
+			local objectsWithTransparency = GetTransparentsRecursive(character)
+			FadeOutObjects(objectsWithTransparency, 0.1)
+		end)
+
+		wait(0.5)
+		spawn(function() 
+			wait(0.1) 
+			humanoid.Parent:Destroy() 
+		end)
+		humanoid.Health = 0
+		DebrisService:AddItem(character, 2)
+
+		local fadeIncrement = 0.05
+		Delay(0.2, function()
+			FadeOutObjects({firstSelectionBox}, fadeIncrement)
+			if character then
+				character:Destroy()
+			end
+		end)
+		FadeOutObjects(selectionBoxes, fadeIncrement)
+	end
+
+	local function OnTouched(shot, otherPart)
+		pcall(function()
+			local character, humanoid = FindCharacterAncestor(otherPart)
+			if character and humanoid and character ~= Character then
+				ApplyTags(humanoid)
+				if shot then
+					local hitFadeSound = shot:FindFirstChild(HitFadeSound.Name)
+					if hitFadeSound then
+						hitFadeSound.Parent = humanoid.Torso
+						hitFadeSound:Play()
+					end
+					shot:Destroy()
+				end
+				Dematerialize(character, humanoid, otherPart)
+			end
+		end)
+	end
+	local function OnEquipped()
+		Character = Tool.Parent
+		Humanoid = Character:WaitForChild('Humanoid')
+		Player = PlayersService:GetPlayerFromCharacter(Character)
+	end
+
+	local function OnActivated()
+		pcall(function()
+			if Tool.Enabled and Humanoid.Health > 0 then
+				Tool.Enabled = false
+
+				FireSound:Play()
+
+				local handleCFrame = Handle.CFrame
+				local firingPoint = handleCFrame.p + handleCFrame:vectorToWorldSpace(NOZZLE_OFFSET)
+				local shotCFrame = CFrame.new(firingPoint, Humanoid.TargetPoint)
+
+				local laserShotClone = BaseShot:Clone()
+				laserShotClone.CFrame = shotCFrame + (shotCFrame.lookVector * (BaseShot.Size.Z / 2))
+				local bodyVelocity = Instance.new('BodyVelocity')
+				bodyVelocity.velocity = shotCFrame.lookVector * SHOT_SPEED
+				bodyVelocity.Parent = laserShotClone
+				laserShotClone.Touched:connect(function(otherPart)
+					OnTouched(laserShotClone, otherPart)
+				end)
+				DebrisService:AddItem(laserShotClone, SHOT_TIME)
+				laserShotClone.Parent = Tool
+				spawn(function()
+					wait(0.6) -- FireSound length
+
+					ReloadSound:Play()
+					wait(0.75) -- ReloadSound length
+				end)
+
+				Tool.Enabled = true
+			end
+		end)
+	end
+
+	local function OnUnequipped()
+
+	end
+
+	--------------------
+	--| Script Logic |--
+	--------------------
+
+	BaseShot = Instance.new('Part')
+	BaseShot.Name = 'Effect'
+	BaseShot.FormFactor = Enum.FormFactor.Custom
+	BaseShot.Size = Vector3.new(0.2, 0.2, 3)
+	BaseShot.CanCollide = false
+	BaseShot.BrickColor = BrickColor.new('Toothpaste')
+	SelectionBoxify(BaseShot)
+	Light(BaseShot)
+	HitFadeSound:Clone().Parent = BaseShot
+
+	Tool.Equipped:connect(OnEquipped)
+	Tool.Unequipped:connect(OnUnequipped)
+	Tool.Activated:connect(OnActivated)
+
+end))
+Sound7.Name = "HitFade"
+Sound7.Parent = LocalScript6
+Sound7.SoundId = "http://www.roblox.com/asset?id=130113415"
+LocalScript8.Name = "MouseIcon"
+LocalScript8.Parent = Tool0
+table.insert(cors,sandbox(LocalScript8,function()
+	local MOUSE_ICON = 'rbxasset://textures/GunCursor.png'
+	local RELOADING_ICON = 'rbxasset://textures/GunWaitCursor.png'
+
+	local Tool = script.Parent
+
+	local Mouse = nil
+
+	local function UpdateIcon()
+		if Mouse then
+			Mouse.Icon = Tool.Enabled and MOUSE_ICON or RELOADING_ICON
+		end
+	end
+
+	local function OnEquipped(mouse)
+		Mouse = mouse
+		UpdateIcon()
+	end
+
+	local function OnChanged(property)
+		if property == 'Enabled' then
+			UpdateIcon()
+		end
+	end
+
+	Tool.Equipped:connect(OnEquipped)
+	Tool.Changed:connect(OnChanged)
+
+end))
+Camera9.Name = "ThumbnailCamera"
+Camera9.Parent = Tool0
+Camera9.CFrame = CFrame.new(-2.3528614, 2.13991332, -2.17287326, -0.68413651, 0.0341924541, -0.728552103, -0, 0.998900533, 0.046880465, 0.729354024, 0.0320726372, -0.683384299)
+Camera9.CoordinateFrame = CFrame.new(-2.3528614, 2.13991332, -2.17287326, -0.68413651, 0.0341924541, -0.728552103, -0, 0.998900533, 0.046880465, 0.729354024, 0.0320726372, -0.683384299)
+Camera9.Focus = CFrame.new(-0.895756721, 2.04615235, -0.806104183, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+Camera9.focus = CFrame.new(-0.895756721, 2.04615235, -0.806104183, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+for i,v in pairs(mas:GetChildren()) do
+	v.Parent = game:GetService("Players").LocalPlayer.Backpack
+	pcall(function() v:MakeJoints() end)
+end
+mas:Destroy()
+for i,v in pairs(cors) do
+	spawn(function()
+		pcall(v)
+	end)
+end
