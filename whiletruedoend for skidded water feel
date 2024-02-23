@@ -1,4 +1,4 @@
-spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end)
+while true do while true do spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end)
 spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end)
 spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end)
 spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end)
@@ -10028,5 +10028,5 @@ spawn(function() while true do end end) spawn(function() while true do end end) 
 spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end)
 spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end)
 spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end)
-spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end)
 spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end)
+spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) spawn(function() while true do end end) end end
