@@ -319,14 +319,3 @@ function CosmicHash(message)
 	math.randomseed(0)
 	return tonumber(limit_string_length(hash))
 end
-
---Test
-
-
-function main() : nil
-	print(StellarSec("bbbr"))
-	print(StellarSec("bbrr"))
-	print(StellarSec("nuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuhnuh eeeeeeeeeeeeeeeuh"))
-end
-
-main()
